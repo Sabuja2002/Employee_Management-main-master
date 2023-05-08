@@ -1,0 +1,152 @@
+<!-- <div class="container mt-4 w-50">
+  <div class="card bg-secondary">
+    <h1 class="text-center text-primary">Employee Registration</h1>
+
+    <form class="">
+      <div class="form-group m-5 form-floating">
+        
+        <input
+          type="text"
+          [(ngModel)]="customername"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Enter Name"
+          required
+        />
+        <label for="floatingInput">Enter your Name in small words</label>
+      </div>
+
+      <div class="form-group m-5 form-floating">
+        
+        <input
+          type="email"
+          [(ngModel)]="customeraddress"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Enter address"
+          required
+        />
+        <label for="floatingInput">Enter your Email</label>
+      </div>
+
+      <div class="form-group m-5 form-floating">
+        
+        <input
+          type="text"
+          [(ngModel)]="mobile"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Enter Mobile"
+          required
+        />
+        <label for="floatingInput">Enter your Phone Number</label>
+      </div>
+      <div class="form-group m-5 form-floating">
+        
+        <input
+          type="date"
+          [(ngModel)]="age"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Enter your date of birth"
+          required
+        />
+        <label for="floatingInput">Enter date of birth</label>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success mb-2" (click)="save()">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button class="mt-2 bg-info fw-bold text-center" routerLink="/employee-list">Go to Employee List page</button>
+  </div>
+  
+</div> -->
+<div class="container mt-4 w-50">
+    <div class="card bg-secondary">
+      <h1 class="text-center text-primary">Employee Registration</h1>
+  
+      <form class="">
+  
+        <div class="form-group m-5 form-floating">
+          <!-- <label class="">Name</label> -->
+          <input
+             
+            type="text"
+            [ngClass]="{'is-invalid':nameLength}"
+            [(ngModel)]="customername"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Enter Name"
+          />
+          <div *ngIf="nameLength" class="text-danger">
+            Enter Name
+          </div>
+          <label for="floatingInput">Enter your Name</label>
+        </div>
+  
+        <div class="form-group m-5 form-floating">
+          <!-- <label>address</label> -->
+          <input
+            type="text"
+            [ngClass]="{'is-invalid': addressLength || addressATR}"
+            [(ngModel)]="customeraddress"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Enter address"
+          />
+          <div *ngIf="addressLength" class="text-danger">
+            Enter Email-Address
+          </div>
+          <div *ngIf="addressATR" class="text-danger">
+            Email-Address should contain '@' 
+          </div>
+          <label for="floatingInput">Enter your Email Address</label>
+        </div>
+  
+        <div class="form-group m-5 form-floating">
+          <!-- <label>Mobile</label> -->
+          <input
+            type="text"
+            [(ngModel)]="mobile"
+            [ngClass]="{'is-invalid':mobileLength}"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Enter Mobile"
+          />
+          <div *ngIf="mobileLength" class="text-danger">
+            Enter a valid Mobile Number
+          </div>
+          <label for="floatingInput">Enter your Phone Number</label>
+        </div>
+        <div class="form-group m-5 form-floating">
+          <input
+            type="date"
+            [(ngModel)]="dob"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Enter your date of birth"
+            required
+          />
+          <label for="floatingInput">Enter date of birth</label>
+        </div>
+        <div class="text-center">
+          <button type="submit" [disabled]="false" class="btn btn-success mb-2" (click)="save()">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+    
+  </div>

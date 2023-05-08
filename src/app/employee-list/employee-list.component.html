@@ -1,0 +1,53 @@
+<div class="container mt-4 w-50">
+    <div>
+        <div class="container mt-4 ">
+          <h1 class="text-center">Employee Table</h1>
+          <div class="d-flex justify-content-center">
+            <button class="mt-2 bg-info fw-bold text-center " routerLink="">Go back to Registration Page</button>
+          </div>
+          </div>
+          <table class="table">
+            <thead>
+              <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+    
+              <tr class="">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Age</th>
+                <th scope="col">Option</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let CustomerItem of CustomerArray">
+                <th scope="row">{{ CustomerItem.customerid }}</th>
+                <td>{{ CustomerItem.customername | uppercase }}</td>
+                <td>{{ CustomerItem.customeraddress }}</td>
+                <td>{{ CustomerItem.mobile }}</td>
+                <td>{{CustomerItem.age}}</td>
+    
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-success me-2"
+                    (click)="setUpdate(CustomerItem.customerid)"
+                  >
+                    Edit
+                  </button>
+    
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="setDelete(CustomerItem)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+<!-- </div> -->

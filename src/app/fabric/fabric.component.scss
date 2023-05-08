@@ -1,0 +1,21 @@
+@import "font-awesome/css/font-awesome.css";
+
+
+#canvas {
+  border: 2px dashed #cccccc;
+  //display:flex;
+ // justify-content:center;
+  //align-items:center;
+ // margin-left:500px;
+  //margin-top:50px;
+}
+.images-item-upload {
+  width: 80%;
+  cursor: pointer;
+  padding-bottom: 10px;
+  
+}
+#canvas2{
+  display: hidden;
+  // opacity: 0;
+}

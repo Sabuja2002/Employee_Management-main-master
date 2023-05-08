@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col-md-3">
+    <button
+      data-toggle="tooltip"
+      data-placement="bottom"
+      title="Export to image"
+      type="button"
+      class="btn btn-primary m-1"
+      (click)="rasterize()"
+    >
+      <i class="fa fa-download" aria-hidden="true"></i> Export to image
+    </button>
+    <div class="card mt-3">
+      <div class="card-header">Add Templates</div>
+      <div class="card-body max-height">
+        <img
+          class="images-item" style="width:100px"
+          (click)="getTemplPolaroid($event)"
+          src="../assets/template/salary.png"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6"><canvas id="canvas" #htmlCanvas></canvas></div>
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">Upload image</div>
+      <div class="card-body">
+        <img
+          id="testImage"
+          *ngIf="url"
+          style="width: 60px; height: 90px"
+          [src]="url"
+          (click)="addImageOnCanvas()"
+        />
+        <input type="file" (change)="readUrl($event)" />
+        <br />
+        <br />
+        <div
+          class="btn-group btn-group-justified"
+          role="group"
+          aria-label="..."
+        >
+          <div class="btn-group" role="group">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="removeWhite(url)"
+            >
+              <i class="fa fa-times" aria-hidden="true"></i> Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="width: 300px">
+      <div class="card-header">Options</div>
+      <div class="card-body text-center">
+        <div class="btn-group" role="group" aria-label="...">
+          <button
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Delete element"
+            type="button"
+            class="btn btn-outline-danger"
+            [disabled]="!selected"
+            (click)="removeSelected()"
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+          <button
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Send to back"
+            type="button"
+            class="btn btn-outline-primary"
+            [disabled]="!selected"
+            (click)="sendToBack()"
+          >
+            <i class="fa fa-level-down" aria-hidden="true"></i>
+          </button>
+          <button
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Send to front"
+            type="button"
+            class="btn btn-outline-primary"
+            [disabled]="!selected"
+            (click)="bringToFront()"
+          >
+            <i class="fa fa-level-up" aria-hidden="true"></i>
+          </button>
+          <button
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Clone"
+            type="button"
+            class="btn btn-outline-primary"
+            [disabled]="!selected"
+            (click)="clone()"
+          >
+            <i class="fa fa-clone" aria-hidden="true"></i>
+          </button>
+          <button
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Unselect"
+            type="button"
+            class="btn btn-outline-primary"
+            [disabled]="!selected"
+            (click)="cleanSelect()"
+          >
+            <i class="fa fa-remove" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="loadJsonData()">
+      Load Json Data
+    </button>
+  </div>
+</div>
