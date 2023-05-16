@@ -53,6 +53,29 @@
         </div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-header">Upload Excel File</div>
+      <div class="card-body">
+        <input type="file" (change)="readExcel($event)" />
+        <br />
+        <br />
+        <div
+          class="btn-group btn-group-justified"
+          role="group"
+          aria-label="..."
+        >
+          <div class="btn-group" role="group">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="removeWhite(url)"
+            >
+              <i class="fa fa-times" aria-hidden="true"></i> Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="card" style="width: 300px">
       <div class="card-header">Options</div>
       <div class="card-body text-center">
